@@ -30,4 +30,20 @@ public class UserRegistration {
             System.out.println("It Is Invalid First Name");
 
     }
+    public static void validLastName() {
+
+        System.out.println("Enter Last Name:");
+        String lname = scanner.next();
+        String regex = "^[A-Z]{1}[a-z]{2,}$";
+
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(lname);
+        boolean r = m.matches();
+
+        if (r)
+            System.out.println("It Is A Valid Last Name");
+        else
+            System.out.println("It Is Invalid Last name");
+
+    }
 }
