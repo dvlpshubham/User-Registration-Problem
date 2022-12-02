@@ -112,4 +112,16 @@ public class UserRegistration {
             System.out.println("Password is Invalid");
     }
 
+    public static void validPassRule4() {
+        System.out.print("Enter the Password Atleast One Upper Case & One Numaric & One Special Character:  ");
+        String passWord2 = scanner.next();
+        String regex6 = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z0-9@$!%*?&]{5,}$";
+        Pattern p6 = Pattern.compile(regex6);
+        Matcher m6 = p6.matcher(passWord2);
+        boolean r6 = m6.matches();
+        if (r6)
+            System.out.println("Password is Valid");
+        else
+            System.out.println("Password is Invalid");
+    }
 }
