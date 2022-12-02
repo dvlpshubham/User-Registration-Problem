@@ -50,8 +50,8 @@ public class UserRegistration {
 
         System.out.println("Enter E-mail:");
         String email = scanner.next();
-        String regex = "^[a-z0-9]+([.][a-z0-9]+)*@bl[.]co[.][a-z]{2,3}$";
-
+        //String regex = "^[a-zA-Z0-9]+([.][A-Za-z]+)*@[a-zA-Z]+[.]+[a-zA-Z]{2,3}+([.][A-Za-z]+)*$";
+        String regex = "^[a-z]{3}[a-zA-Z.]{0,}+@+bl.co+[a-z.]{0,}$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(email);
         boolean r = m.matches();
@@ -66,7 +66,7 @@ public class UserRegistration {
 
         System.out.print("Enter your Mobile Number : ");
         String phoneNo = scanner.nextLine();
-        String regex3 = "^[0-9]{2}(\s){1}[0-9]{10}$";
+        String regex3 = "^[0-9]{2}(\s){1}[6-9]{1}[0-9]{9}$";
         Pattern p3 = Pattern.compile(regex3);
         Matcher m3 = p3.matcher(phoneNo);
         boolean r3 = m3.matches();
@@ -79,6 +79,18 @@ public class UserRegistration {
         System.out.print("Enter The Password Atleast Eight Character : ");
         String passWord = scanner.nextLine();
         String regex4 = "^[A-Z a-z 0-9]{8,}$";
+        Pattern p4 = Pattern.compile(regex4);
+        Matcher m4 = p4.matcher(passWord);
+        boolean r4 = m4.matches();
+        if (r4)
+            System.out.println("Password is Valid");
+        else
+            System.out.println("Password is Invalid");
+    }
+    public static void validPassRule2() {
+        System.out.print("Enter the Password Atleast One Upper Case & Eight Character :");
+        String passWord = scanner.nextLine();
+        String regex4 = "^[A-Z a-z]{1}[A-Z a-z 0-9]{7,}$";
         Pattern p4 = Pattern.compile(regex4);
         Matcher m4 = p4.matcher(passWord);
         boolean r4 = m4.matches();
