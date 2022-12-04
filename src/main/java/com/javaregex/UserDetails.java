@@ -75,4 +75,10 @@ import java.util.regex.Pattern;
             Matcher matcher = pattern.matcher(password);
             return matcher.matches();
         }
+        public boolean upperCase(String upperCase) {
+            regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*#?&]{1})[A-Za-z\\d@$!%*?&]{8,}$";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(upperCase);
+            return matcher.matches();
+        }
     }
