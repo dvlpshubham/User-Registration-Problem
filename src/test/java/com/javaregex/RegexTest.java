@@ -1,64 +1,72 @@
 package com.javaregex;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Junit Test class to verify UserDetail's Methods
+ *
+ * @author Shubham Raj
+ */
 public class RegexTest {
-    /**
-     * New instance userDetails created for UserDetails
-     */
-    UserDetails userDetails = new UserDetails();
+
 
     /**
-     * Method to verify first name
+     * Method to test first name validation method when Proper first name is given.
      */
+
     @Test
-    public void testFistName() throws NullPointerException {
-        boolean result = userDetails.testFirstName(null);
-        assertTrue(result);
+    public void givenProperFirstName_returnTrue() {
+
+        UserDetails userDetails = new UserDetails();
+        assertTrue(userDetails.firstNameValidation("Alpha"));
     }
 
     /**
-     * Method to verify last name
+     * Method to test first name validation method when Improper first name is given.
      */
     @Test
-    public void testLastName() {
-        boolean result = userDetails.testLastName("Raj");
-        assertTrue(result);
-    }
-    @Test
-    public void testLastNameFalse() {
-        boolean result = userDetails.testLastName("raj");
-        assertFalse(result);
-    }
+    public void givenImproperFirstName_returnFalse() {
 
-    /**
-     * Method to verify email
-     */
-    @Test
-    public void testEmail() {
-        boolean result = userDetails.email("shubham.raj@bl.co.in");
-        assertTrue(result);
+        UserDetails userDetails = new UserDetails();
+        assertFalse(userDetails.firstNameValidation("alpha"));
     }
-
     /**
-     * Method to test Mobile no.
+     * Method to test first name validation method when first name is null.
      */
     @Test
-    public void testMobile() {
-        boolean result = userDetails.mobile("91 7004635191");
-        assertTrue(result);
+    public void givenNullFirstName_returnFalseByNullPointerException() {
+
+        UserDetails userDetails = new UserDetails();
+        assertFalse(userDetails.firstNameValidation(null));
     }
-
     /**
-     * Method to test password
+     * Method to test last name validation method when Proper last name is given.
      */
     @Test
-    public void testPassword() {
-        boolean result = userDetails.password("shuB12345");
-        assertTrue(result);
+    public void givenProperLastName_returnTrue() {
+
+        UserDetails userDetails = new UserDetails();
+        assertTrue(userDetails.lastNameValidation("Alpha"));
+    }
+    /**
+     * Method to test last name validation method when Improper last name is given.
+     */
+    @Test
+    public void givenImproperLastName_returnFalse() {
+
+        UserDetails userDetails = new UserDetails();
+        assertFalse(userDetails.lastNameValidation("alpha"));
+    }
+    /**
+     * Method to test last name validation method when last name is given null.
+     */
+    @Test
+    public void givenNullLastName_returnFalseByNullPointerException() {
+
+        UserDetails userDetails = new UserDetails();
+        assertFalse(userDetails.lastNameValidation(null));
     }
 }
